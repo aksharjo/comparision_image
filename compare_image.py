@@ -5,19 +5,19 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 # Load the image in grayscale
-img1 = cv.imread('sign1.png', cv.IMREAD_GRAYSCALE)
-img2 = cv.imread('sign2.png', cv.IMREAD_GRAYSCALE)
+img1 = cv.imread('sign1.png', cv.IMREAD_GRAYSCALE) #signature1
+img2 = cv.imread('sign2.png', cv.IMREAD_GRAYSCALE) #signature2
 
-# Calculate the number of rows and cols in the image matrix
+# number of rows and coloumns in image matrix
 num_of_blocks = 9
 
-# Store all the individual blocks in this array
+# Storing  the individual blocks in this array
 def split_image(img, num_of_blocks):
     rows, cols = img.shape
     block_rows = rows//num_of_blocks
     block_cols = cols//num_of_blocks
     blocks = []
-    # Divide the image into blocks
+    # dividing image into blocks 
     for row in range(0, rows - block_rows + 1, block_rows):
         for col in range(0, cols - block_cols + 1, block_cols):
             # Print statement so that people don't get bored waiting
@@ -233,5 +233,4 @@ def calculate_score(chain4_code_grand_sum1, chain4_code_grand_sum2):
     denominator = np.sqrt(sum_of_squares1) * np.sqrt(sum_of_squares2)
     return numerator/denominator
 #returns similarity index
-print("similarrity :")
-print(calculate_score(chain4_code_grand_sum1, chain4_code_grand_sum2))
+print("similarrity :" + calculate_score(chain4_code_grand_sum1, chain4_code_grand_sum2))
